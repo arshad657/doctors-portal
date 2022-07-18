@@ -1,8 +1,14 @@
 import React from 'react'
+import Navigation from '../Shared/Navigation/Navigation'
+import Services from '../Services/Services'
 
 function Home() {
   return (
-    <div>this is home</div>
+    <div>
+    <Navigation />
+    <Services />
+    </div>
+    
   )
 }
 
