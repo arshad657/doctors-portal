@@ -8,7 +8,7 @@ import Banner from './Banner/Banner'
 function Home() {
   return (
     <div>
-    <Navigation />
+    {/* <Navigation /> */}
     <Banner />
     <Services />
     <AppointmentBanner />
