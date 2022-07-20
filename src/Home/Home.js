@@ -4,6 +4,7 @@ import Navigation from '../Shared/Navigation/Navigation'
 import Services from '../Services/Services'
 import AppointmentBanner from './AppointmentBanner/AppointmentBanner' 
 import Banner from './Banner/Banner'
+import ExceptionalCare from './ExceptionalCare/ExceptionalCare'
 
 function Home() {
   return (
@@ -11,6 +12,7 @@ function Home() {
     {/* <Navigation /> */}
     <Banner />
     <Services />
+    <ExceptionalCare />
     <AppointmentBanner />
     </div>
     

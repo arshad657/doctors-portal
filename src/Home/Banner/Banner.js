@@ -35,7 +35,7 @@ function Banner() {
                 </Box>
             </Grid>
             <Grid item xs={12} md={6} style={ verticalCenter}>
-                <img src={chair} alt="" style={{maxWidth: '400px', minWidth: '250px', textAlign: 'center'}} />
+                <img src={chair} alt="" style={{maxWidth: '400px', minWidth: '250px'}} />
             </Grid>
       
         </Grid>
