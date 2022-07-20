@@ -13,7 +13,11 @@ function AppointmentHeader({date, setDate}) {
 
   return (
     <Container>
-        <Grid container spacing={2}>
+        <Grid container spacing={2} sx={{
+            display: 'flex',
+            alignItems: 'center',
+            marginBottom: '55px'
+        }}>
             <Grid item xs={12} md={6}>
                 <LocalizationProvider dateAdapter={AdapterDateFns}>
                 <StaticDatePicker
@@ -29,7 +33,7 @@ function AppointmentHeader({date, setDate}) {
             </Grid>
             <Grid item xs={12} md={6}>
                 
-                <img src={chair} alt="" style={{width: "400px"}}/>
+                <img src={chair} alt="" style={{maxWidth: "80%"}}/>
             </Grid>
         </Grid>
         </Container>
