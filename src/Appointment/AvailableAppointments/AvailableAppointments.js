@@ -50,6 +50,7 @@ function AvailableAppointments({date}) {
     <Grid container spacing={2}>
             {
                 bookings.map(booking => <Booking 
+                    date={date}
                     key={booking.id }
                     booking={booking}
 
