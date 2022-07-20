@@ -18,24 +18,24 @@ function AppointmentBanner() {
         <Grid container spacing={2}>
         <Grid item xs={12} md={6}>
         <img src={doctor} 
-        style={{width:500, marginTop: '-120px'}}
+        style={{maxWidth: "61%", minWidth: "370px", marginTop: '-120px'}}
         />
         </Grid>
 
         <Grid item xs={12} md={6} sx={{
         display: 'flex',
-        justifyContent: 'flex-start',
+        justifyContent: 'center',
         alignItems: 'center',
-        textAlign: 'left'
+        textAlign: 'center'
         }}>
             <Box>
                 <Typography varient='h6' sx={{mb: 5, mt: 2}} style={{color: '#5CE7ED',fontSize: 25}}>
                 Appointment
                 </Typography>
-                <Typography varient='h1' sx={{my: 5}} style={{color: 'white', fontSize: 30}}>
+                <Typography varient='h4' sx={{my: 5}} style={{color: 'white', fontSize: 30}}>
                 Make an Appointment Today
                 </Typography>
-                <Typography varient='h' sx={{my: 5}} style={{color: 'white', fontWeight:300, fontSize: 17, width: '600px' }}>
+                <Typography varient='h6' sx={{my: 5}} style={{color: 'white', fontWeight:300, fontSize: 17, maxWidth: '350px' }}>
                 Lorem, ipsum dolor sit amet consectetur adipisicing elit. Dolor aliquid assumenda voluptatem pariatur nobis ab quae cumque vero eligendi doloremque!
                 </Typography>
                 <Button variant='contained' sx={{mb: 5}}style={{backgroundColor: '#5CE7ED'}}>Learn More
