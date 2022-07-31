@@ -5,14 +5,16 @@ import Appointment from './Appointment/Appointment';
 import Navigation from './Shared/Navigation/Navigation';
 import Login from './Login/Login';
 import Register from './Login/Register/Register';
+import AuthProvider from './Contexts/AuthProvider/AuthProvider';
 
 function App() {
   return (
-    <Router>
+    <AuthProvider>
+      <Router>
 
-        <div className="App">
-        <Navigation />
-        <Routes>
+          <div className="App">
+          <Navigation />
+          <Routes>
 
           <Route path='/' element={<Home />} />
           <Route path='/appointment' element={<Appointment />} />
@@ -20,9 +22,11 @@ function App() {
           <Route path='/register' element={<Register />} />
 
           </Routes>
-    </div>
+          </div>
 
       </Router>
+    </AuthProvider>
+    
       
   );
 }

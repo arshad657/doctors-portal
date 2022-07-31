@@ -2,10 +2,13 @@ import React, {useState} from 'react'
 import {Link} from 'react-router-dom'
 import login from '../../images/login.png'
 import { Button, Container, Grid,  TextField, Typography } from '@mui/material'
+import useAuth from '../../Hooks/useAuth'
 
 
 function Register() {
   const [loginData, setLoginData] =useState({})
+
+  const {registerUser} = useAuth();
 
     const handleOnChange = e => {
         const field = e.target.name;
@@ -18,9 +21,10 @@ function Register() {
     const handleSubmit = (e) => {
       if(loginData.password != loginData.password2){
         alert('Your password did not match')
-
       }
-        e.preventDefault()
+
+      registerUser(loginData.email, loginData.password)
+      e.preventDefault()
     }
 
   return (
@@ -33,7 +37,7 @@ function Register() {
                     sx={{width: '75%', m: 1}}
                     id='standard-basic'
                     name='email'
-                    type='email'
+                    type= "email"
                     onChange={handleOnChange}
                     label='Your Email'
                     variant='standard' />
@@ -55,10 +59,10 @@ function Register() {
                     variant='standard' />
                     <Button variant='contained' type='submit' sx={{width: '75%', m: 1}}> Register</Button>
 
+                </form>
                     <Link to='/login' style={{textDecoration: 'none'}}>
                     <Button variant='text'>Already Registered? Please Login</Button>
                     </Link> 
-                </form>
             </Grid>
             <Grid item xs={12} md={6}>
                 <img src={login} alt="" style={{width: '100%'}}/>
