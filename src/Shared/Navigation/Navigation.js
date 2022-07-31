@@ -34,10 +34,10 @@ function Navigation() {
 
         {
           user?.email ?
-          <Button color = 'inherit'>Logout</Button> 
+          <Button color = 'inherit' onClick={logout}>Logout</Button> 
           :
           <Link to='/login' style={{textDecoration: 'none', color: 'white'}}>
-            <Button color="inherit" onClick={logout}>Login</Button>
+            <Button color="inherit" >Login</Button>
         </Link>
         }
       </Toolbar>

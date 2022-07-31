@@ -9,45 +9,52 @@ function useFirebase() {
 
   //initialize firebase app
   initializeFirebase();
-
+  const [authError, setAuthError] = useState('')
   const [user, setUser] = useState({})
+  const [isLoading, setIsLoading] = useState(true)
 
   const auth = getAuth();
 
   const registerUser = (email, password) => {
-    
+    setIsLoading(true)
     createUserWithEmailAndPassword(auth, email, password)
     .then((userCredential) => {
-    // Signed in 
-    const user = userCredential.user;
-    
-    // ...
+      setAuthError('')
+
   })
   .catch((error) => {
-    const errorCode = error.code;
-    const errorMessage = error.message;
+    setAuthError(error.message)
+    if(password.length < 6 ){
+      alert("Your password should be atleast 6 characters")
+    }
+    // if(error){
+    //   alert("Please Enter a valid format of email")
+    // }
+    
+    
     // ..
-  });
+  })
+  .finally(()=> setIsLoading(false))
   }
 
   const logout = () => {
+    setIsLoading(true)
     signOut(auth).then(() => {
       // Sign-out successful.
     }).catch((error) => {
       // An error happened.
-    });
+    })
+    .finally(()=> setIsLoading(false))
   }
 
   const loginUser = (email, password) => {
     signInWithEmailAndPassword(auth, email, password)
     .then((userCredential) => {
-      // Signed in 
-      const user = userCredential.user;
-      // ...
+      setAuthError('')
     })
     .catch((error) => {
-      const errorCode = error.code;
-      const errorMessage = error.message;
+      setAuthError(error.message)
+
     });
   }
 
@@ -58,6 +65,7 @@ function useFirebase() {
       } else{
         setUser({})
       }
+      setIsLoading(false)
     });
     return () => unsubscribe;
   },[])
@@ -65,9 +73,11 @@ function useFirebase() {
 
   return {
     user, 
+    isLoading,
     registerUser,
     loginUser,
-    logout
+    logout,
+    authError
   }
 
 }

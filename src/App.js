@@ -9,10 +9,11 @@ import AuthProvider from './Contexts/AuthProvider/AuthProvider';
 
 function App() {
   return (
+    <div>
     <AuthProvider>
       <Router>
 
-          <div className="App">
+          
           <Navigation />
           <Routes>
 
@@ -22,11 +23,11 @@ function App() {
           <Route path='/register' element={<Register />} />
 
           </Routes>
-          </div>
+          
 
       </Router>
     </AuthProvider>
-    
+    </div>
       
   );
 }
