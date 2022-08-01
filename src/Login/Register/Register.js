@@ -30,7 +30,7 @@ function Register() {
     <Container>
         <Grid container spacing={2}>
             <Grid item xs={12} md={6} sx={{mt: 8}}>
-                <Typography variant='body1' gutterBottom>Register</Typography>
+                <Typography variant='h5' gutterBottom>Register</Typography>
                 
                 {!isLoading && <form onSubmit={handleSubmit}>
                     <TextField

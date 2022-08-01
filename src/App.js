@@ -6,6 +6,7 @@ import Navigation from './Shared/Navigation/Navigation';
 import Login from './Login/Login';
 import Register from './Login/Register/Register';
 import AuthProvider from './Contexts/AuthProvider/AuthProvider';
+import PrivateRoute from './Login/PrivateRoute/PrivateRoute';
 
 function App() {
   return (
@@ -18,12 +19,16 @@ function App() {
           <Routes>
 
           <Route path='/' element={<Home />} />
-          <Route path='/appointment' element={<Appointment />} />
-          <Route path='/login' element={<Login />} />
-          <Route path='/register' element={<Register />} />
 
-          </Routes>
+          <Route path='appointment' element={
+            <PrivateRoute>
+              <Appointment />
+            </PrivateRoute>  
+          }/>
+          <Route path='login' element={<Login />} />
+          <Route path='register' element={<Register />} />
           
+          </Routes>
 
       </Router>
     </AuthProvider>

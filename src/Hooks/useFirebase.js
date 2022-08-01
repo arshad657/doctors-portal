@@ -5,6 +5,7 @@ import {getAuth, createUserWithEmailAndPassword, signOut, onAuthStateChanged, si
 
 
 
+
 function useFirebase() {
 
   //initialize firebase app
@@ -27,11 +28,7 @@ function useFirebase() {
     if(password.length < 6 ){
       alert("Your password should be atleast 6 characters")
     }
-    // if(error){
-    //   alert("Please Enter a valid format of email")
-    // }
-    
-    
+
     // ..
   })
   .finally(()=> setIsLoading(false))
@@ -47,9 +44,13 @@ function useFirebase() {
     .finally(()=> setIsLoading(false))
   }
 
-  const loginUser = (email, password) => {
+  const loginUser = (email, password, location, navigate) => {
     signInWithEmailAndPassword(auth, email, password)
     .then((userCredential) => {
+      const destination = location.state?.from?.pathname || '/';
+      console.log(destination)
+      navigate(destination, {replace: true})
+      
       setAuthError('')
     })
     .catch((error) => {

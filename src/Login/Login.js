@@ -1,5 +1,5 @@
 import { Alert, Button, CircularProgress, Container, Grid,  TextField, Typography } from '@mui/material'
-import {Link} from 'react-router-dom'
+import {Link, useLocation, useNavigate} from 'react-router-dom'
 import React, {useState} from 'react'
 import login from '../images/login.png'
 import useAuth from '../Hooks/useAuth'
@@ -7,6 +7,10 @@ import useAuth from '../Hooks/useAuth'
 function Login() {
     const [loginData, setLoginData] =useState({})
     const {user, loginUser, isLoading, authError} = useAuth()
+    const location = useLocation()
+    
+    const navigate = useNavigate()
+
 
     const handleOnChange = e => {
         const field = e.target.name;
@@ -14,17 +18,17 @@ function Login() {
         const newLoginData = {...loginData};
         newLoginData[field] = value;
         setLoginData(newLoginData)
-        console.log(field, value)
+        
     }
     const handleSubmit = (e) => {
-        loginUser(loginData.email, loginData.password)
+        loginUser(loginData.email, loginData.password, location, navigate)
         e.preventDefault()
     }
   return (
     <Container>
         <Grid container spacing={2}>
             <Grid item xs={12} md={6} sx={{mt: 8}}>
-                <Typography variant='body1' gutterBottom>Login</Typography>
+                <Typography variant='h5' gutterBottom>Login</Typography>
                 <form onSubmit={handleSubmit}>
                     <TextField
                     sx={{width: '75%', m: 1}}
