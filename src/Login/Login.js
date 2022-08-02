@@ -6,7 +6,7 @@ import useAuth from '../Hooks/useAuth'
 
 function Login() {
     const [loginData, setLoginData] =useState({})
-    const {user, loginUser, isLoading, authError} = useAuth()
+    const {user, loginUser, isLoading, authError, signInWithGoogle} = useAuth()
     const location = useLocation()
     
     const navigate = useNavigate()
@@ -24,6 +24,9 @@ function Login() {
         loginUser(loginData.email, loginData.password, location, navigate)
         e.preventDefault()
     }
+    const handleGoogleSignIn =(location, navigate) => {
+        signInWithGoogle(location, navigate)
+    }
   return (
     <Container>
         <Grid container spacing={2}>
@@ -34,7 +37,7 @@ function Login() {
                     sx={{width: '75%', m: 1}}
                     id='standard-basic'
                     name='email'
-                    onChange={handleOnChange}
+                    onBlur={handleOnChange}
                     label='Your Email'
                     variant='standard' />
                     <TextField
@@ -42,7 +45,7 @@ function Login() {
                     id='standard-basic'
                     label='Your Password'
                     name='password'
-                    onChange={handleOnChange}
+                    onBlur={handleOnChange}
                     type='password'
                     variant='standard' />
                     <Button variant='contained' type='submit' sx={{width: '75%', m: 1}}> Login</Button>
@@ -54,6 +57,8 @@ function Login() {
                     {user?.email && <Alert severity='success'>User logged in successfully</Alert>}
                     {authError && <Alert severity='error'>{authError}</Alert>}
                 </form>
+                <p>............................</p>
+                <Button onClick={handleGoogleSignIn} variant='contained'>Google Sign In</Button>
             </Grid>
             <Grid item xs={12} md={6}>
                 <img src={login} alt="" style={{width: '100%'}}/>

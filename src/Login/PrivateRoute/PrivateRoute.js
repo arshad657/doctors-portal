@@ -8,7 +8,7 @@ function PrivateRoute({ children }) {
     const {user, isLoading} = useAuth();
     const location = useLocation();
 
-    console.log(user.email, location)
+    // console.log(user.email, location.search)
     if(!user.email){
         return <Navigate to='/login' state={{from: location}} replace></Navigate>
     }

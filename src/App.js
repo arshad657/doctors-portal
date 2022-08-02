@@ -7,6 +7,7 @@ import Login from './Login/Login';
 import Register from './Login/Register/Register';
 import AuthProvider from './Contexts/AuthProvider/AuthProvider';
 import PrivateRoute from './Login/PrivateRoute/PrivateRoute';
+import Dashboard from './Dashboard/Dashboard/Dashboard';
 
 function App() {
   return (
@@ -15,7 +16,6 @@ function App() {
       <Router>
 
           
-          <Navigation />
           <Routes>
 
           <Route path='/' element={<Home />} />
@@ -23,6 +23,11 @@ function App() {
           <Route path='appointment' element={
             <PrivateRoute>
               <Appointment />
+            </PrivateRoute>  
+          }/>
+          <Route path='dashboard' element={
+            <PrivateRoute>
+              <Dashboard />
             </PrivateRoute>  
           }/>
           <Route path='login' element={<Login />} />

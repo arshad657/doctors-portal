@@ -1,9 +1,6 @@
 import { useEffect, useState } from "react";
 import initializeFirebase from "../Login/Firebase/Firebase.init"
-import {getAuth, createUserWithEmailAndPassword, signOut, onAuthStateChanged, signInWithEmailAndPassword} from "firebase/auth";
-
-
-
+import {getAuth,signInWithPopup,updateProfile , createUserWithEmailAndPassword, signOut, onAuthStateChanged,GoogleAuthProvider, signInWithEmailAndPassword} from "firebase/auth";
 
 
 function useFirebase() {
@@ -15,12 +12,22 @@ function useFirebase() {
   const [isLoading, setIsLoading] = useState(true)
 
   const auth = getAuth();
+  const googleProvider = new GoogleAuthProvider()
 
-  const registerUser = (email, password) => {
+  const registerUser = (email, password, name, navigate) => {
     setIsLoading(true)
     createUserWithEmailAndPassword(auth, email, password)
     .then((userCredential) => {
-      setAuthError('')
+      setAuthError('');
+      const newUser = {email, displayName: name}
+      setUser(newUser);
+      //send name to firebase after creation
+      updateProfile(auth.currentUser, {
+        displayName: name
+      }).then(() => {
+      }).catch((error) => {
+      });
+      navigate('/', {replace: true})
 
   })
   .catch((error) => {
@@ -45,6 +52,7 @@ function useFirebase() {
   }
 
   const loginUser = (email, password, location, navigate) => {
+    setIsLoading(true)
     signInWithEmailAndPassword(auth, email, password)
     .then((userCredential) => {
       const destination = location.state?.from?.pathname || '/';
@@ -56,7 +64,23 @@ function useFirebase() {
     .catch((error) => {
       setAuthError(error.message)
 
-    });
+    })
+    .finally(()=> setIsLoading(false))
+
+  }
+
+  const signInWithGoogle= (location, navigate) =>{
+    setIsLoading(true)
+    signInWithPopup(auth, googleProvider)
+    .then((result) => {
+      const user = result.user;
+      setAuthError('')
+
+    }).catch((error) => {
+      setAuthError(error.message)
+    })
+    .finally(()=> setIsLoading(false))
+
   }
 
   useEffect(()=> {
@@ -78,6 +102,7 @@ function useFirebase() {
     registerUser,
     loginUser,
     logout,
+    signInWithGoogle,
     authError
   }
 

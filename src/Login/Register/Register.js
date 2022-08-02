@@ -1,5 +1,5 @@
 import React, {useState} from 'react'
-import {Link} from 'react-router-dom'
+import {Link, useNavigate} from 'react-router-dom'
 import login from '../../images/login.png'
 import { Alert, Button, CircularProgress, Container, Grid,  TextField, Typography } from '@mui/material'
 import useAuth from '../../Hooks/useAuth'
@@ -7,10 +7,11 @@ import useAuth from '../../Hooks/useAuth'
 
 function Register() {
   const [loginData, setLoginData] =useState({})
+  const navigate = useNavigate()
 
   const {registerUser, isLoading, user, authError} = useAuth();
 
-    const handleOnChange = e => {
+    const handleOnBlur = e => {
         const field = e.target.name;
         const value = e.target. value;
         const newLoginData = {...loginData};
@@ -18,12 +19,15 @@ function Register() {
         setLoginData(newLoginData)
     }
     const handleSubmit = (e) => {
-      if(loginData.password != loginData.password2){
-        alert('Your password did not match')
-      }
+      if(loginData.password == loginData.password2){
+        console.log(loginData.password, loginData.password2)
+        registerUser(loginData.email, loginData.password, loginData.name, navigate)
 
-      registerUser(loginData.email, loginData.password)
+      }else{
+      alert('Your password did not match')
       e.preventDefault()
+      }
+      
     }
 
   return (
@@ -36,9 +40,17 @@ function Register() {
                     <TextField
                     sx={{width: '75%', m: 1}}
                     id='standard-basic'
+                    name='name'
+                    type= "text"
+                    onBlur={handleOnBlur}
+                    label='Your Name'
+                    variant='standard' />
+                    <TextField
+                    sx={{width: '75%', m: 1}}
+                    id='standard-basic'
                     name='email'
                     type= "email"
-                    onChange={handleOnChange}
+                    onBlur={handleOnBlur}
                     label='Your Email'
                     variant='standard' />
                     <TextField
@@ -46,7 +58,7 @@ function Register() {
                     id='standard-basic'
                     label='Your Password'
                     name='password'
-                    onChange={handleOnChange}
+                    onBlur={handleOnBlur}
                     type='password'
                     variant='standard' />
                     <TextField
@@ -54,7 +66,7 @@ function Register() {
                     id='standard-basic'
                     label='Re-type Your Password'
                     name='password2'
-                    onChange={handleOnChange}
+                    onBlur={handleOnBlur}
                     type='password'
                     variant='standard' />
                     <Button variant='contained' type='submit' sx={{width: '75%', m: 1}}> Register</Button>

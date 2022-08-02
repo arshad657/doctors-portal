@@ -9,7 +9,7 @@ import ExceptionalCare from './ExceptionalCare/ExceptionalCare'
 function Home() {
   return (
     <div>
-    {/* <Navigation /> */}
+    <Navigation />
     <Banner />
     <Services />
     <ExceptionalCare />
