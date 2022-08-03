@@ -58,7 +58,6 @@ function useFirebase() {
     signInWithEmailAndPassword(auth, email, password)
     .then((userCredential) => {
       const destination = location.state?.from?.pathname || '/';
-      console.log(destination)
       navigate(destination, {replace: true})
       
       setAuthError('')
@@ -75,12 +74,17 @@ function useFirebase() {
     setIsLoading(true)
     signInWithPopup(auth, googleProvider)
     .then((result) => {
+      
       const user = result.user;
+      const destination = location.state?.from?.pathname || '/';
+      navigate(destination, {replace: true});
       saveUser(user.email, user.displayName, 'PUT')
       setAuthError('')
+      
 
     }).catch((error) => {
       setAuthError(error.message)
+      console.log(error)
     })
     .finally(()=> setIsLoading(false))
 

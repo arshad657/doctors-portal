@@ -8,6 +8,8 @@ import Register from './Login/Register/Register';
 import AuthProvider from './Contexts/AuthProvider/AuthProvider';
 import PrivateRoute from './Login/PrivateRoute/PrivateRoute';
 import Dashboard from './Dashboard/Dashboard/Dashboard';
+import DashboardHome from './Dashboard/Dashboard/DashboardHome/DashboardHome';
+import MakeAdmin from './Dashboard/Dashboard/MakeAdmin/MakeAdmin';
 
 function App() {
   return (
@@ -28,11 +30,18 @@ function App() {
           <Route path='dashboard' element={
             <PrivateRoute>
               <Dashboard />
-            </PrivateRoute>  
-          }/>
+            </PrivateRoute>}>
+            {/* <Route path='appointment' element={<Appointment />} /> */}
+
+          {/* <Route path='' element={<DashboardHome />} /> */}
+          <Route path='admin' element={<MakeAdmin />} />
+
+          </Route>
           <Route path='login' element={<Login />} />
           <Route path='register' element={<Register />} />
-          
+          {/* <Route path='*'/> */}
+          <Route path='admin' element={<MakeAdmin />} />
+
           </Routes>
 
       </Router>

@@ -21,14 +21,15 @@ import Calender from '../../Shared/Navigation/Calender/Calender';
 import Appointment from '../../Appointment/Appointment';
 import Appointments from './Appointments/Appointments';
 import { Link } from 'react-router-dom';
+import DashboardHome from './DashboardHome/DashboardHome';
 
 const drawerWidth = 200;
 
 function Dashboard(props) {
   const { window } = props;
   const [mobileOpen, setMobileOpen] = React.useState(false);
-  const [date, setDate ] = React.useState(new Date())
-
+ 
+  
   const handleDrawerToggle = () => {
     setMobileOpen(!mobileOpen);
   };
@@ -38,6 +39,9 @@ function Dashboard(props) {
       <Toolbar />
       <Divider />
       <List>
+      <Link to='/admin' style={{textDecoration: 'none', color: 'black'}}>
+        <Button color="inherit">Make Admin</Button>
+        </Link>
         {['Inbox', 'Starred', 'Send email', 'Drafts'].map((text, index) => (
           <ListItem key={text} disablePadding>
             <ListItemButton>
@@ -121,21 +125,8 @@ function Dashboard(props) {
         sx={{ flexGrow: 1, p: 3, width: { sm: `calc(100% - ${drawerWidth}px)` } }}
       >
         <Toolbar />
-        <Typography paragraph>
-        <Grid container spacing={2}>
-            <Grid item xs={12} md={6}>
-                <Calender 
-                date = {date}
-                setDate= {setDate}
-                />
-            </Grid>
-            <Grid item xs={12} md={6}>
-                <Appointments 
-                date = {date}
-                />
-            </Grid>
-        </Grid>
-        </Typography>
+        
+        <DashboardHome />
         
       </Box>
     </Box>
