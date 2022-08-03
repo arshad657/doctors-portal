@@ -7,6 +7,7 @@ import { LocalizationProvider } from '@mui/x-date-pickers/LocalizationProvider';
 import { StaticDatePicker } from '@mui/x-date-pickers/StaticDatePicker';
 
 import chair from '../../images/chair.png'
+import Calender from '../../Shared/Navigation/Calender/Calender';
 
 function AppointmentHeader({date, setDate}) {
     
@@ -19,17 +20,7 @@ function AppointmentHeader({date, setDate}) {
             marginBottom: '55px'
         }}>
             <Grid item xs={12} md={6}>
-                <LocalizationProvider dateAdapter={AdapterDateFns}>
-                <StaticDatePicker
-                    displayStaticWrapperAs='desktop'
-                    value={date}
-                    
-                    onChange={(newValue) => {
-                    setDate(newValue);
-                    }}
-                    renderInput={(params) => <TextField {...params} />}
-                />
-                </LocalizationProvider>
+                <Calender date={date} setDate={setDate} />
             </Grid>
             <Grid item xs={12} md={6}>
                 

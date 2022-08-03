@@ -28,7 +28,7 @@ function Navigation() {
           Doctors Portal
         </Typography>
         
-        <Link to='/appointment'>
+        <Link to='/appointment' style={{textDecoration: 'none', color: 'white'}}>
         <Button color="inherit">Appointment</Button>
         </Link>
 

@@ -16,12 +16,18 @@ import MailIcon from '@mui/icons-material/Mail';
 import MenuIcon from '@mui/icons-material/Menu';
 import Toolbar from '@mui/material/Toolbar';
 import Typography from '@mui/material/Typography';
+import { Button, Grid } from '@mui/material';
+import Calender from '../../Shared/Navigation/Calender/Calender';
+import Appointment from '../../Appointment/Appointment';
+import Appointments from './Appointments/Appointments';
+import { Link } from 'react-router-dom';
 
 const drawerWidth = 200;
 
 function Dashboard(props) {
   const { window } = props;
   const [mobileOpen, setMobileOpen] = React.useState(false);
+  const [date, setDate ] = React.useState(new Date())
 
   const handleDrawerToggle = () => {
     setMobileOpen(!mobileOpen);
@@ -58,7 +64,7 @@ function Dashboard(props) {
           ml: { sm: `${drawerWidth}px` },
         }}
       >
-        <Toolbar>
+        <Toolbar sx={{display:'flex', justifyContent: 'space-between'}}>
           <IconButton
             color="inherit"
             aria-label="open drawer"
@@ -70,6 +76,11 @@ function Dashboard(props) {
           </IconButton>
           <Typography variant="h6" noWrap component="div">
             Dashboard
+          </Typography>
+          <Typography variant="h6" noWrap component="div" >
+              <Link to='/appointment' style={{textDecoration: 'none', color: 'white'}}>
+              <Button color="inherit">Appointment</Button>
+              </Link>
           </Typography>
         </Toolbar>
       </AppBar>
@@ -111,7 +122,19 @@ function Dashboard(props) {
       >
         <Toolbar />
         <Typography paragraph>
-          content
+        <Grid container spacing={2}>
+            <Grid item xs={12} md={6}>
+                <Calender 
+                date = {date}
+                setDate= {setDate}
+                />
+            </Grid>
+            <Grid item xs={12} md={6}>
+                <Appointments 
+                date = {date}
+                />
+            </Grid>
+        </Grid>
         </Typography>
         
       </Box>
