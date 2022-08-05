@@ -1,7 +1,7 @@
 import * as React from 'react';
 import { Grid } from '@mui/material'
-import Calender from '../../../Shared/Navigation/Calender/Calender'
-import Appointments from '../Appointments/Appointments'
+import Calender from '../../../Shared/Calender/Calender'
+import Appointments from '../../Appointments/Appointments'
 
 function DashboardHome() {
     const [date, setDate ] = React.useState(new Date())
@@ -9,6 +9,7 @@ function DashboardHome() {
     <Grid container spacing={2}>
             <Grid item xs={12} md={6}>
                 <Calender 
+                
                 date = {date}
                 setDate= {setDate}
                 />

@@ -18,7 +18,6 @@ function Service(props) {
         alt="green iguana"
       />
       <CardContent>
-        
         <Typography variant="h5" component="div">
           {name}
         </Typography>

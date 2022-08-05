@@ -17,17 +17,21 @@ import MenuIcon from '@mui/icons-material/Menu';
 import Toolbar from '@mui/material/Toolbar';
 import Typography from '@mui/material/Typography';
 import { Button, Grid } from '@mui/material';
-import Calender from '../../Shared/Navigation/Calender/Calender';
+import Calender from '../../Shared/Calender/Calender';
 import Appointment from '../../Appointment/Appointment';
-import Appointments from './Appointments/Appointments';
+import Appointments from '../Appointments/Appointments';
 import { Link } from 'react-router-dom';
 import DashboardHome from './DashboardHome/DashboardHome';
+import useAuth from '../../Hooks/useAuth';
+import Navigation from '../../Shared/Navigation/Navigation';
+import Footer from '../../Shared/Footer/Footer';
 
 const drawerWidth = 200;
 
 function Dashboard(props) {
   const { window } = props;
   const [mobileOpen, setMobileOpen] = React.useState(false);
+  const {user }= useAuth()
  
   
   const handleDrawerToggle = () => {
@@ -36,12 +40,9 @@ function Dashboard(props) {
 
   const drawer = (
     <div>
-      <Toolbar />
+      <Toolbar></Toolbar>
       <Divider />
       <List>
-      <Link to='/admin' style={{textDecoration: 'none', color: 'black'}}>
-        <Button color="inherit">Make Admin</Button>
-        </Link>
         {['Inbox', 'Starred', 'Send email', 'Drafts'].map((text, index) => (
           <ListItem key={text} disablePadding>
             <ListItemButton>
@@ -59,6 +60,7 @@ function Dashboard(props) {
   const container = window !== undefined ? () => window().document.body : undefined;
 
   return (
+    <>
     <Box sx={{ display: 'flex' }}>
       <CssBaseline />
       <AppBar
@@ -78,6 +80,9 @@ function Dashboard(props) {
           >
             <MenuIcon />
           </IconButton>
+          <Typography variant="subtitle2" noWrap component="div" >
+           {user.email}
+          </Typography>
           <Typography variant="h6" noWrap component="div">
             Dashboard
           </Typography>
@@ -87,6 +92,7 @@ function Dashboard(props) {
               </Link>
           </Typography>
         </Toolbar>
+        
       </AppBar>
       <Box
         component="nav"
@@ -129,7 +135,10 @@ function Dashboard(props) {
         <DashboardHome />
         
       </Box>
+      
     </Box>
+    <Footer />
+    </>
   );
 }
 

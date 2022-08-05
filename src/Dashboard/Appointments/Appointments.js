@@ -6,7 +6,7 @@ import TableContainer from '@mui/material/TableContainer';
 import TableHead from '@mui/material/TableHead';
 import TableRow from '@mui/material/TableRow';
 import Paper from '@mui/material/Paper';
-import useAuth from '../../../Hooks/useAuth'
+import useAuth from '../../Hooks/useAuth'
 
 function Appointments({date}) {
     const {user} = useAuth()
@@ -23,7 +23,7 @@ function Appointments({date}) {
 
     },[date])
   return (
-    <div>Your Appointments: {appointments.length}
+    <div>Your Appointments in this date: {appointments.length}
     
     <TableContainer component={Paper}>
       <Table sx={{ minWidth: 650 }} aria-label="simple table">

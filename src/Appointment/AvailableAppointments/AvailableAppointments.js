@@ -1,6 +1,7 @@
 import {  Alert, Grid, Typography } from '@mui/material'
 import { Container } from '@mui/system'
 import React, { useState } from 'react'
+import Footer from '../../Shared/Footer/Footer'
 import Booking from '../Booking/Booking'
 
 
@@ -46,6 +47,7 @@ const bookings= [
 function AvailableAppointments({date}) {
     const [bookingSuccess, setBookingSuccess] = useState(false)
   return (
+    <>
     <Container >
     <Typography variant='h4' sx={{color: 'info.main', mb: 5, fontWeight: 500}}>AvailableAppointments {date.toDateString()}</Typography>
     {bookingSuccess && <Alert severity='success'>Appointment booked successfully!</Alert>}
@@ -64,6 +66,8 @@ function AvailableAppointments({date}) {
 
     
     </Container>
+    <Footer />
+    </>
   )
 }
 

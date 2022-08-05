@@ -3,6 +3,7 @@ import {Link, useLocation, useNavigate} from 'react-router-dom'
 import React, {useState} from 'react'
 import login from '../images/login.png'
 import useAuth from '../Hooks/useAuth'
+import googlePic from '../images/googlePic.png'
 
 function Login() {
     const [loginData, setLoginData] =useState({})
@@ -24,7 +25,7 @@ function Login() {
         loginUser(loginData.email, loginData.password, location, navigate)
         e.preventDefault()
     }
-    const handleGoogleSignIn =(location, navigate) => {
+    const handleGoogleSignIn =() => {
         signInWithGoogle(location, navigate)
     }
   return (
@@ -57,8 +58,8 @@ function Login() {
                     {user?.email && <Alert severity='success'>User logged in successfully</Alert>}
                     {authError && <Alert severity='error'>{authError}</Alert>}
                 </form>
-                <p>............................</p>
-                <Button onClick={handleGoogleSignIn} variant='contained'>Google Sign In</Button>
+                
+                <Button onClick={handleGoogleSignIn} variant='outlined'><img src={googlePic} style={{width:'20px', marginRight:'10px'}} /> Sign In with Google</Button>
             </Grid>
             <Grid item xs={12} md={6}>
                 <img src={login} alt="" style={{width: '100%'}}/>

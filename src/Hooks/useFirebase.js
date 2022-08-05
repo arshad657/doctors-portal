@@ -74,10 +74,9 @@ function useFirebase() {
     setIsLoading(true)
     signInWithPopup(auth, googleProvider)
     .then((result) => {
-      
       const user = result.user;
-      const destination = location.state?.from?.pathname || '/';
-      navigate(destination, {replace: true});
+      // const destinatio = location.state?.from?.pathname || '/';
+      // navigate(destinatio, {replace: true});
       saveUser(user.email, user.displayName, 'PUT')
       setAuthError('')
       

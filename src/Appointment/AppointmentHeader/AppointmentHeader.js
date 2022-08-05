@@ -7,7 +7,7 @@ import { LocalizationProvider } from '@mui/x-date-pickers/LocalizationProvider';
 import { StaticDatePicker } from '@mui/x-date-pickers/StaticDatePicker';
 
 import chair from '../../images/chair.png'
-import Calender from '../../Shared/Navigation/Calender/Calender';
+import Calender from '../../Shared/Calender/Calender';
 
 function AppointmentHeader({date, setDate}) {
     

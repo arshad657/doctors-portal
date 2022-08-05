@@ -34,13 +34,11 @@ function App() {
             {/* <Route path='appointment' element={<Appointment />} /> */}
 
           {/* <Route path='' element={<DashboardHome />} /> */}
-          <Route path='admin' element={<MakeAdmin />} />
+          
 
           </Route>
           <Route path='login' element={<Login />} />
           <Route path='register' element={<Register />} />
-          {/* <Route path='*'/> */}
-          <Route path='admin' element={<MakeAdmin />} />
 
           </Routes>
 

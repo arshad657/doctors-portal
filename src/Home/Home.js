@@ -5,15 +5,17 @@ import Services from '../Services/Services'
 import AppointmentBanner from './AppointmentBanner/AppointmentBanner' 
 import Banner from './Banner/Banner'
 import ExceptionalCare from './ExceptionalCare/ExceptionalCare'
+import Footer from '../Shared/Footer/Footer'
 
 function Home() {
   return (
     <div>
-    <Navigation />
+    <Navigation heading={'Doctors Portal'}/>
     <Banner />
     <Services />
     <ExceptionalCare />
     <AppointmentBanner />
+    <Footer />
     </div>
     
   )

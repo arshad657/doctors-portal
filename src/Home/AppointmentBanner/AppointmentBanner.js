@@ -7,9 +7,10 @@ import bg from '../../images/appointment-bg.png'
 
 const appointmentBanner ={
     background: `url(${bg})`,
-    backgroundColor: 'rgba(45,58,74, 0.9)',
+    backgroundColor: 'rgba(128,139,150)',
     backgroundBlendMode: 'darken, luminosity',
-    marginTop: 175
+    marginTop: 175,
+    color: 'black'
 }
 
 function AppointmentBanner() {
@@ -29,16 +30,16 @@ function AppointmentBanner() {
         textAlign: 'center'
         }}>
             <Box>
-                <Typography varient='h6' sx={{mb: 5, mt: 2}} style={{color: '#5CE7ED',fontSize: 25}}>
+                <Typography varient='h6' sx={{mb: 5, mt: 2}} style={{color: '#2C3E50',fontSize: 25}}>
                 Appointment
                 </Typography>
-                <Typography varient='h4' sx={{my: 5}} style={{color: 'white', fontSize: 30}}>
+                <Typography varient='h4' sx={{my: 5}} style={{ fontSize: 30}}>
                 Make an Appointment Today
                 </Typography>
-                <Typography varient='h6' sx={{my: 5}} style={{color: 'white', fontWeight:300, fontSize: 17, maxWidth: '350px' }}>
+                <Typography varient='h6' sx={{my: 5}} style={{ fontWeight:350, fontSize: 17, maxWidth: '350px' }}>
                 Lorem, ipsum dolor sit amet consectetur adipisicing elit. Dolor aliquid assumenda voluptatem pariatur nobis ab quae cumque vero eligendi doloremque!
                 </Typography>
-                <Button variant='contained' sx={{mb: 5}}style={{backgroundColor: '#5CE7ED'}}>Learn More
+                <Button variant='contained' sx={{mb: 5}}style={{ }}>Learn More
                 </Button>
             </Box>
         </Grid>

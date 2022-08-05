@@ -9,7 +9,7 @@ import MenuIcon from '@mui/icons-material/Menu';
 import { Link } from "react-router-dom";
 import useAuth from '../../Hooks/useAuth';
 
-function Navigation() {
+function Navigation(props) {
   const {user, logout} = useAuth()
   return (
     <Box sx={{ flexGrow: 1 }}>
@@ -24,9 +24,16 @@ function Navigation() {
         >
           <MenuIcon />
         </IconButton>
-        <Typography variant="h6" component="div" sx={{ flexGrow: 1 }}>
-          Doctors Portal
+        
+        <Typography variant="subtitle2" component="div" sx={{ flexGrow: 1, }}>
+          Hello, {user.email}
         </Typography>
+        
+        
+        <Typography variant="h6" component="div" sx={{ flexGrow: 1 }}>
+          {props.heading}
+        </Typography>
+        
         
         <Link to='/appointment' style={{textDecoration: 'none', color: 'white'}}>
         <Button color="inherit">Appointment</Button>
@@ -35,10 +42,11 @@ function Navigation() {
         {
           user?.email ?
           <Box>
+            
           <Link to='/dashboard  ' style={{textDecoration: 'none', color: 'white'}}>
           <Button color="inherit" >Dashboard</Button>
             </Link>
-          
+            
           <Button color = 'inherit' onClick={logout}>Logout</Button> 
           </Box>
           :

@@ -30,10 +30,10 @@ function Services() {
   return (
     <Box sx={{ flexGrow: 1 }}>
         <Container>
-        <Typography variant="h6" sx={{fontWeight: 500, m: 2, color: 'success.main'}} component="div">
+        <Typography variant="h6" sx={{fontWeight: 500, m: 2, color: 'success.main', textAlign:'center'}} component="div">
           OUR SERVICES
         </Typography>
-        <Typography variant="h4" sx={{fontWeight: 600, m: 5}} component="div">
+        <Typography variant="h4" sx={{fontWeight: 600, m: 5, textAlign: 'center'}} component="div">
           Services We Provide
         </Typography>
       <Grid container spacing={{ xs: 2, md: 3 }} columns={{ xs: 4, sm: 8, md: 12 }}>

@@ -5,7 +5,7 @@ import pic from '../../images/treatment.png'
 
 function ExceptionalCare() {
   return (
-    <Container>
+    <Container sx={{marginTop: '50px'}}>
     <Grid container spacing={2} >
             <Grid item xs={12} md={6} >
                 <img src={pic} alt="" style={{maxWidth:'60%'}} />

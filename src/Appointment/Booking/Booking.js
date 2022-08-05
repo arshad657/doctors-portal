@@ -11,14 +11,16 @@ function Booking({booking, date, setBookingSuccess}) {
   return (
     <>
     <Grid item xs={12} sm={6} md={4}>
-      <Paper>
+      <Paper sx={{textAlign: 'center'}}>
         <Typography variant='h5' sx={{color: 'info.main', fontWeight: 600}} gutterBottom component={'div'}>{name}</Typography>
         <Typography variant='h6' gutter component={'div'}>{time}</Typography>
         <Typography variant='caption' display={'block'} gutterBottom>{space} Spaces Availabe</Typography>
         <Button onClick={handleOpen} variant='contained' sx={{mb: 3}}>BOOK APPOINTMENT</Button>
+        
       </Paper>
         
     </Grid>
+    
     <BookingModals
     setBookingSuccess = {setBookingSuccess} 
     date={date}

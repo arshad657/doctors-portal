@@ -5,7 +5,7 @@ import React from 'react'
 
 function Calender({date, setDate}) {
   return (
-    <LocalizationProvider dateAdapter={AdapterDateFns}>
+    <LocalizationProvider dateAdapter={AdapterDateFns} style={{width: '1000px'}}>
                 <StaticDatePicker
                     displayStaticWrapperAs='desktop'
                     value={date}

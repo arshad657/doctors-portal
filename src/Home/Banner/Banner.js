@@ -8,7 +8,8 @@ import { height } from '@mui/system';
 
 
 const bannerBg = {
-    background: `url(${bg})`
+    background: `url(${bg})`,
+    marginTop: '20px'
 }
 
 const verticalCenter = {

@@ -7,7 +7,7 @@ import AvailableAppointments from './AvailableAppointments/AvailableAppointments
         const [date, setDate] = React.useState(new Date());
       return (
         <div>
-            <Navigation />
+            <Navigation heading={'Appointment'}/>
             <AppointmentHeader date={date} setDate={setDate}/>
             <AvailableAppointments date={date} />
         </div>
