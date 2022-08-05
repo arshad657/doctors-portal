@@ -10,7 +10,7 @@ import Footer from '../Shared/Footer/Footer'
 function Home() {
   return (
     <div>
-    <Navigation heading={'Doctors Portal'}/>
+    <Navigation/>
     <Banner />
     <Services />
     <ExceptionalCare />

@@ -61,9 +61,11 @@ function Dashboard(props) {
 
   return (
     <>
-    <Box sx={{ display: 'flex' }}>
+    <Box sx={{}}>
       <CssBaseline />
-      <AppBar
+        
+      <Navigation />
+      {/* <AppBar
         position="fixed"
         sx={{
           width: { sm: `calc(100% - ${drawerWidth}px)` },
@@ -93,14 +95,14 @@ function Dashboard(props) {
           </Typography>
         </Toolbar>
         
-      </AppBar>
+      </AppBar> */}
       <Box
         component="nav"
         sx={{ width: { sm: drawerWidth }, flexShrink: { sm: 0 } }}
         aria-label="mailbox folders"
       >
         {/* The implementation can be swapped with js to avoid SEO duplication of links. */}
-        <Drawer
+        {/* <Drawer
           container={container}
           variant="temporary"
           open={mobileOpen}
@@ -124,7 +126,7 @@ function Dashboard(props) {
           open
         >
           {drawer}
-        </Drawer>
+        </Drawer> */}
       </Box>
       <Box
         component="main"
