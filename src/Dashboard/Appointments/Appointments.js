@@ -14,7 +14,7 @@ function Appointments({date}) {
     const [appointment] = appointments;
     console.log(user.email)
     useEffect(() => {
-        const url = `http://localhost:5000/appointments?email=${user.email}&date=${date}`
+        const url = `https://evening-caverns-74385.herokuapp.com/appointments?email=${user.email}&date=${date.toLocaleDateString()}`
         fetch(url)
         .then(res => res.json())
         .then(data => 

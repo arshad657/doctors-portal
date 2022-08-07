@@ -39,7 +39,7 @@ function AppointmentBanner() {
                 <Typography varient='h6' sx={{my: 5}} style={{ fontWeight:350, fontSize: 17, maxWidth: '350px' }}>
                 Lorem, ipsum dolor sit amet consectetur adipisicing elit. Dolor aliquid assumenda voluptatem pariatur nobis ab quae cumque vero eligendi doloremque!
                 </Typography>
-                <Button variant='contained' sx={{mb: 5}}style={{ }}>Learn More
+                <Button variant='contained' sx={{mb: 5,backgroundColor:'#118494'}}style={{ }}>Learn More
                 </Button>
             </Box>
         </Grid>

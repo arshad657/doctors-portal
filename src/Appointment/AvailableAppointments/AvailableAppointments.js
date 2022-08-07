@@ -49,7 +49,7 @@ function AvailableAppointments({date}) {
   return (
     <>
     <Container >
-    <Typography variant='h4' sx={{color: 'info.main', mb: 5, fontWeight: 500}}>AvailableAppointments {date.toDateString()}</Typography>
+    <Typography variant='h4' sx={{color: '#046875', mb: 5, fontWeight: 500}}>AvailableAppointments {date.toDateString()}</Typography>
     {bookingSuccess && <Alert severity='success'>Appointment booked successfully!</Alert>}
     <Grid container spacing={2}>
             {

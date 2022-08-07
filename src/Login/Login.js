@@ -35,6 +35,7 @@ function Login() {
                 <Typography variant='h5' gutterBottom>Login</Typography>
                 <form onSubmit={handleSubmit}>
                     <TextField
+                    onFocus={{color:'black'}}
                     sx={{width: '75%', m: 1}}
                     id='standard-basic'
                     name='email'
@@ -42,6 +43,7 @@ function Login() {
                     label='Your Email'
                     variant='standard' />
                     <TextField
+                    onFocus={{color:'black'}}
                     sx={{width: '75%', m: 1}}
                     id='standard-basic'
                     label='Your Password'
@@ -49,17 +51,17 @@ function Login() {
                     onBlur={handleOnChange}
                     type='password'
                     variant='standard' />
-                    <Button variant='contained' type='submit' sx={{width: '75%', m: 1}}> Login</Button>
+                    <Button variant='contained' type='submit' sx={{width: '75%', m: 1, backgroundColor:'#118494'}}> Login</Button>
 
                     <Link to='/register' style={{textDecoration: 'none'}}>
-                    <Button variant='text'>New User? Please Register</Button>
+                    <Button variant='text' sx={{color:'#118494'}}>New User? Please Register</Button>
                     </Link> 
                     {isLoading && <CircularProgress />}
                     {user?.email && <Alert severity='success'>User logged in successfully</Alert>}
                     {authError && <Alert severity='error'>{authError}</Alert>}
                 </form>
                 
-                <Button onClick={handleGoogleSignIn} variant='outlined'><img src={googlePic} style={{width:'20px', marginRight:'10px'}} /> Sign In with Google</Button>
+                <Button onClick={handleGoogleSignIn} variant='outlined' sx={{color:'black'}}><img src={googlePic} style={{width:'20px', marginRight:'10px'}} /> Sign In with Google</Button>
             </Grid>
             <Grid item xs={12} md={6}>
                 <img src={login} alt="" style={{width: '100%'}}/>

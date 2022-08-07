@@ -5,11 +5,11 @@ import React from 'react'
 
 function Calender({date, setDate}) {
   return (
-    <LocalizationProvider dateAdapter={AdapterDateFns} style={{width: '1000px'}}>
+    <LocalizationProvider dateAdapter={AdapterDateFns} style={{width: '1000px', backgroundColor:'#118494'}}>
                 <StaticDatePicker
                     displayStaticWrapperAs='desktop'
                     value={date}
-                    
+                    style={{color:'#118494'}}
                     onChange={(newValue) => {
                     setDate(newValue);
                     }}

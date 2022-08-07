@@ -35,10 +35,10 @@ function Navigation() {
 
   
   return (
-    <Box sx={{ flexGrow: 1 }}>
+    <Box sx={{ flexGrow: 1}}>
     
-    <AppBar position="static">
-      <Container maxWidth="xl">
+    <AppBar style={{position:'static', backgroundColor:'#118494'}} >
+      <Container maxWidth="xl" >
         <Toolbar disableGutters>
           <Typography
             variant="h6"

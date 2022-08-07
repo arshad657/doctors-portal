@@ -103,7 +103,7 @@ function useFirebase() {
 
   const saveUser = (email, displayName, method) => {
     const user = { email, displayName };
-    const url = 'http://localhost:5000/users';
+    const url = 'https://evening-caverns-74385.herokuapp.com/users';
     fetch(url,{
       method: method,
       headers: {

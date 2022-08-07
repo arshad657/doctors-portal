@@ -20,7 +20,7 @@ function ExceptionalCare() {
                     </Typography>
                     
                 </Box>
-                <Button variant='contained' sx={{mt:5}}>Learn More</Button>
+                <Button variant='contained' sx={{mt:5, backgroundColor:'#118494'}}>Learn More</Button>
             </Grid>
       
         </Grid>

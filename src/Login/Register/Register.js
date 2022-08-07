@@ -38,6 +38,7 @@ function Register() {
                 
                 {!isLoading && <form onSubmit={handleSubmit}>
                     <TextField
+                    onFocus={{color:'black'}}
                     sx={{width: '75%', m: 1}}
                     id='standard-basic'
                     name='name'
@@ -46,6 +47,7 @@ function Register() {
                     label='Your Name'
                     variant='standard' />
                     <TextField
+                    onFocus={{color:'black'}}
                     sx={{width: '75%', m: 1}}
                     id='standard-basic'
                     name='email'
@@ -54,6 +56,7 @@ function Register() {
                     label='Your Email'
                     variant='standard' />
                     <TextField
+                    onFocus={{color:'black'}}
                     sx={{width: '75%', m: 1}}
                     id='standard-basic'
                     label='Your Password'
@@ -62,16 +65,18 @@ function Register() {
                     type='password'
                     variant='standard' />
                     <TextField
+                    onFocus={{color:'black'}}
                     sx={{width: '75%', m: 1}}
                     id='standard-basic'
                     label='Re-type Your Password'
                     name='password2'
                     onBlur={handleOnBlur}
                     type='password'
-                    variant='standard' />
-                    <Button variant='contained' type='submit' sx={{width: '75%', m: 1}}> Register</Button>
+                    variant='standard'
+                     />
+                    <Button variant='contained' type='submit' sx={{width: '75%', m: 1, backgroundColor:'#118494'}}> Register</Button>
                     <Link to='/login' style={{textDecoration: 'none'}}>
-                    <Button variant='text'>Already Registered? Please Login</Button>
+                    <Button variant='text' sx={{color:'#118494'}}>Already Registered? Please Login</Button>
                     </Link> 
                 </form>}
                     {isLoading && <CircularProgress />}
