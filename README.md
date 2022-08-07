@@ -1,14 +1,15 @@
-# Getting Started with Create React App
+# Doctors Portal
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+## Live site [Link](https://doctors-portal-b1733.web.app/).
 
-## Available Scripts
+This is a site made for an imaginary company who handles doctor's schedule online. Regular users will be able to login and book their appointments form the site. After placing the appointment the user can go to the dashboard to review the appointment on the perticular date.
 
-In the project directory, you can run:
+## Key Features
+ 1. The user can book an or more appointments 
+ 2. The user can review his/her appointments from dashboard
+ 3. The user can login and register in the app 
 
-### `npm start`
-
-Runs the app in the development mode.\
+<!-- Runs the app in the development mode.\
 Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
 
 The page will reload when you make changes.\
@@ -67,4 +68,4 @@ This section has moved here: [https://facebook.github.io/create-react-app/docs/d
 
 ### `npm run build` fails to minify
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify) -->
