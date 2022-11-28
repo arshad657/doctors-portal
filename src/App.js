@@ -8,8 +8,9 @@ import Register from './Login/Register/Register';
 import AuthProvider from './Contexts/AuthProvider/AuthProvider';
 import PrivateRoute from './Login/PrivateRoute/PrivateRoute';
 import Dashboard from './Dashboard/Dashboard/Dashboard';
-import DashboardHome from './Dashboard/Dashboard/DashboardHome/DashboardHome';
-import MakeAdmin from './Dashboard/Dashboard/MakeAdmin/MakeAdmin';
+import DashboardHome from './Dashboard/Dashboard/DashboardHome/AdminDashboard';
+import AllUsers from './Dashboard/AllUsers/AllUsers';
+import AllAppointments from './Dashboard/Dashboard/DashboardHome/AllAppointments';
 
 function App() {
   return (
@@ -27,6 +28,16 @@ function App() {
               <Appointment />
             </PrivateRoute>  
           }/>
+          {/* <Route path='/dashboard/allusers' element={
+            <AdminRoute>
+              <AllUsers />
+            </AdminRoute>  
+          }/>
+          <Route path='/dashboard/allappointments' element={
+            <AdminRoute>
+              <AllAppointments />
+            </AdminRoute>  
+          }/> */}
           <Route path='dashboard' element={
             <PrivateRoute>
               <Dashboard />

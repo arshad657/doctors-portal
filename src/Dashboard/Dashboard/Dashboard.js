@@ -21,17 +21,21 @@ import Calender from '../../Shared/Calender/Calender';
 import Appointment from '../../Appointment/Appointment';
 import Appointments from '../Appointments/Appointments';
 import { Link } from 'react-router-dom';
-import DashboardHome from './DashboardHome/DashboardHome';
+import AdminDashboard from './DashboardHome/AdminDashboard';
 import useAuth from '../../Hooks/useAuth';
 import Navigation from '../../Shared/Navigation/Navigation';
 import Footer from '../../Shared/Footer/Footer';
+import UserDashboard from './DashboardHome/UserDashboard';
+import useAdmin from '../../Hooks/useAdmin';
 
 const drawerWidth = 200;
 
 function Dashboard(props) {
+  const {user}= useAuth()
+  const [isAdmin] = useAdmin(user?.email)
+  console.log(user.email)
   const { window } = props;
   const [mobileOpen, setMobileOpen] = React.useState(false);
-  const {user }= useAuth()
  
   
   const handleDrawerToggle = () => {
@@ -65,68 +69,12 @@ function Dashboard(props) {
       <CssBaseline />
         
       <Navigation />
-      {/* <AppBar
-        position="fixed"
-        sx={{
-          width: { sm: `calc(100% - ${drawerWidth}px)` },
-          ml: { sm: `${drawerWidth}px` },
-        }}
-      >
-        <Toolbar sx={{display:'flex', justifyContent: 'space-between'}}>
-          <IconButton
-            color="inherit"
-            aria-label="open drawer"
-            edge="start"
-            onClick={handleDrawerToggle}
-            sx={{ mr: 2, display: { sm: 'none' } }}
-          >
-            <MenuIcon />
-          </IconButton>
-          <Typography variant="subtitle2" noWrap component="div" >
-           {user.email}
-          </Typography>
-          <Typography variant="h6" noWrap component="div">
-            Dashboard
-          </Typography>
-          <Typography variant="h6" noWrap component="div" >
-              <Link to='/appointment' style={{textDecoration: 'none', color: 'white'}}>
-              <Button color="inherit">Appointment</Button>
-              </Link>
-          </Typography>
-        </Toolbar>
-        
-      </AppBar> */}
+     
       <Box
         component="nav"
         sx={{ width: { sm: drawerWidth }, flexShrink: { sm: 0 } }}
         aria-label="mailbox folders"
       >
-        {/* The implementation can be swapped with js to avoid SEO duplication of links. */}
-        {/* <Drawer
-          container={container}
-          variant="temporary"
-          open={mobileOpen}
-          onClose={handleDrawerToggle}
-          ModalProps={{
-            keepMounted: true, // Better open performance on mobile.
-          }}
-          sx={{
-            display: { xs: 'block', sm: 'none' },
-            '& .MuiDrawer-paper': { boxSizing: 'border-box', width: drawerWidth },
-          }}
-        >
-          {drawer}
-        </Drawer>
-        <Drawer
-          variant="permanent"
-          sx={{
-            display: { xs: 'none', sm: 'block' },
-            '& .MuiDrawer-paper': { boxSizing: 'border-box', width: drawerWidth },
-          }}
-          open
-        >
-          {drawer}
-        </Drawer> */}
       </Box>
       <Box
         component="main"
@@ -134,8 +82,11 @@ function Dashboard(props) {
       >
         <Toolbar />
         
-        <DashboardHome />
+        {isAdmin === true 
+          ? <AdminDashboard />
+          : <UserDashboard />
         
+        }
       </Box>
       
     </Box>

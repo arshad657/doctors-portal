@@ -32,7 +32,7 @@ function Appointments({date}) {
       const appointment = {
         method: 'DELETE'
     };
-    fetch(`http://localhost:5000/appointments/${id}`, appointment)
+    fetch(`https://evening-caverns-74385.herokuapp.com/appointments/${id}`, appointment)
     .then(res =>res.json())
     .then(data => {
       if(data.deletedCount > 0){
@@ -46,6 +46,7 @@ function Appointments({date}) {
 
 
   return (
+    <>
     <div>Your Appointments in this date: {appointments.length}
     
     <TableContainer component={Paper}>
@@ -55,6 +56,7 @@ function Appointments({date}) {
             <TableCell>Patient Name</TableCell>
             <TableCell align="right">Service </TableCell>
             <TableCell align="right">Scheduled</TableCell>
+            <TableCell align="right">Status</TableCell>
             {/* <TableCell align="right">Action</TableCell> */}
           </TableRow>
         </TableHead>
@@ -69,6 +71,7 @@ function Appointments({date}) {
               </TableCell>
               <TableCell align="right">{appointment.serviceName}</TableCell>
               <TableCell align="right">{appointment.time}</TableCell>
+              <TableCell>{appointment.status}</TableCell>
               <TableCell><Button variant="outlined" onClick={() => handleCancel(appointment._id)}>Cancel</Button></TableCell>
 
             </TableRow>
@@ -78,7 +81,7 @@ function Appointments({date}) {
     </TableContainer>
     
     </div>
-    
+    </>
   )
 }
 

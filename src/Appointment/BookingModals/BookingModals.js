@@ -23,7 +23,8 @@ const style = {
 
 
 function BookingModals({open, handleClose, booking, date, setBookingSuccess}) {
-    const {name, time} = booking;
+    const {name, time, status} = booking;
+    // console.log(status)
     const {user} = useAuth()
     const initialInfo = { patientName: user.displayName, email: user.email, phone: ''}
     const [bookingInfo, setBookingInfo] = useState(initialInfo)
@@ -34,6 +35,7 @@ function BookingModals({open, handleClose, booking, date, setBookingSuccess}) {
      const appointment = {
       ...bookingInfo,
       time,
+      status: status,
       serviceName: name,
       date: date.toLocaleDateString()
      }
@@ -117,6 +119,13 @@ function BookingModals({open, handleClose, booking, date, setBookingSuccess}) {
               sx={{width: '90%', m: 1}}
               id='outlined-size-small'
               defaultValue = {date}
+              size='small'
+              />     
+              <TextField
+              disabled
+              sx={{width: '90%', m: 1}}
+              id='outlined-size-small'
+              defaultValue = 'Pending'
               size='small'
               />     
               <Button variant='contained' type='submit' >Submit</Button>         

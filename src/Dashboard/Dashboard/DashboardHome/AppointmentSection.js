@@ -3,7 +3,7 @@ import { Grid } from '@mui/material'
 import Calender from '../../../Shared/Calender/Calender'
 import Appointments from '../../Appointments/Appointments'
 
-function DashboardHome() {
+function AppointmentSection() {
     const [date, setDate ] = React.useState(new Date())
   return (
     <Grid container spacing={2}>
@@ -23,4 +23,4 @@ function DashboardHome() {
   )
 }
 
-export default DashboardHome
+export default AppointmentSection
